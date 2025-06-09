@@ -20,6 +20,9 @@
 -- Table structure for table `category`
 --
 
+CREATE DATABASE `link`;
+USE `link`;
+
 DROP TABLE IF EXISTS `category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
@@ -31,11 +34,11 @@ CREATE TABLE `category` (
   PRIMARY KEY (`categoryID`),
   KEY `fk_sub_category_1_idx` (`sub_categoryID`),
   CONSTRAINT `fk_category` FOREIGN KEY (`sub_categoryID`) REFERENCES `sub_category` (`sub_categoryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `category`
+-- Dumping data for table `category`s
 --
 
 LOCK TABLES `category` WRITE;
@@ -89,7 +92,7 @@ CREATE TABLE `product` (
   PRIMARY KEY (`productID`),
   KEY `fk_product_1_idx` (`categoryID`),
   CONSTRAINT `fk_product_category` FOREIGN KEY (`categoryID`) REFERENCES `category` (`categoryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10002 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10002 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10125,7 +10128,7 @@ CREATE TABLE `stock_in` (
   KEY `fk_stock_in_2_idx` (`userID`),
   CONSTRAINT `fk_stock_in_product` FOREIGN KEY (`productID`) REFERENCES `product` (`productID`),
   CONSTRAINT `fk_stock_in_user` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=202 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=202 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10360,7 +10363,7 @@ CREATE TABLE `stock_out` (
   KEY `fk_stock_out_user_idx` (`userID`),
   CONSTRAINT `fk_stock_out_product` FOREIGN KEY (`productID`) REFERENCES `product` (`productID`),
   CONSTRAINT `fk_stock_out_user` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=402 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=402 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10786,7 +10789,7 @@ CREATE TABLE `sub_category` (
   `sub_category_name` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`sub_categoryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -10830,7 +10833,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`userID`),
   UNIQUE KEY `user_name_UNIQUE` (`user_name`),
   UNIQUE KEY `user_email_UNIQUE` (`user_email`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
